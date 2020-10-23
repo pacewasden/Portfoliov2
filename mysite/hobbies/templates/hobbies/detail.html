@@ -1,6 +1,17 @@
 {% extends 'hobbies/base.html'%}
 
 {% block body%}
-<h1>{{hobby.hobby_name}}</h1>
-<h2>{{hobby.hobby_description}}</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+           <img src="{{ hobby.hobby_picture }}" class="card" height="300px">
+        </div>
+        <div class="col-md-6">
+            <h1>{{hobby.hobby_name}}</h1>
+            <h2>{{hobby.hobby_description}}</h2>
+        </div>
+
+    </div>
+</div>
+
 {% endblock %}
