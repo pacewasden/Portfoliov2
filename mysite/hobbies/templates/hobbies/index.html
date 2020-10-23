@@ -1,8 +1,30 @@
-{% for hobby in hobby_list %}
-    <ul>
-            <li>
-                <a href="{% url 'hobbies:detail' hobby.id%}">{{hobby.id}}--{{hobby.hobby_name}}</a>
-            </li>
-    </ul>
+{% extends 'hobbies/base.html'%}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hobbies Page</title>
 
-{% endfor%}
+</head>
+<body>
+    {% block body %}
+    {% for hobby in hobby_list %}
+    <div class="row">
+        <div class="col-md-3 offset-md-2">
+            <img class="card" height="150px" src="{{hobby.hobby_picture}}">
+        </div>
+        <div class="col-md-4">
+            <h1>{{hobby.hobby_name}}</h1>
+            <h3>{{hobby.hobby_description}}</h3>
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-success" href="{% url 'hobbies:detail' hobby.id%}">Details</a>
+        </div>
+    </div>
+    {% endfor%}
+    {% endblock %}
+</body>
+</html>

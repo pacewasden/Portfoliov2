@@ -21,9 +21,8 @@ def item(request):
 
 
 def detail(request, hobby_id):
-    # hobby = Hobby.objects.get(pk=hobby_id)
-    # context = {
-    #     'hobby': hobby
-    # }
-    # return render(request, 'hobbies/detail.html', context)
-    return HttpResponse('This is id: %s' % hobby_id)
+    hobby = Hobby.objects.get(pk=hobby_id)
+    context = {
+        'hobby': hobby
+    }
+    return render(request, 'hobbies/detail.html', context)
