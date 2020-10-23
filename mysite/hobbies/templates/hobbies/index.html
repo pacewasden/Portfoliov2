@@ -22,6 +22,7 @@
         </div>
         <div class="col-md-2">
             <a class="btn btn-success" href="{% url 'hobbies:detail' hobby.id%}">Details</a>
+            <a class="btn btn-primary" href="{% url 'hobbies:update_hobby' hobby.id%}">Edit</a>
         </div>
     </div>
     {% endfor%}

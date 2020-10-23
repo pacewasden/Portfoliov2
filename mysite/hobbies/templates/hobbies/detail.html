@@ -9,6 +9,7 @@
         <div class="col-md-6">
             <h1>{{hobby.hobby_name}}</h1>
             <h2>{{hobby.hobby_description}}</h2>
+            <a href="{% url 'hobbies:delete_hobby' hobby.id %}" >Delete</a>
         </div>
 
     </div>

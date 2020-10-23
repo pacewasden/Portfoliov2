@@ -26,3 +26,27 @@ def detail(request, hobby_id):
         'hobby': hobby
     }
     return render(request, 'hobbies/detail.html', context)
+
+def create_hobby(request):
+    form = HobbyForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('hobbies:index')
+    return render(request, 'hobbies/hobby-form.html', {'form':form})
+
+def update_hobby(request, id):
+    hobby = Hobby.objects.get(id=id)
+    form = HobbyForm(request.POST or None, instance=hobby)
+
+    if form.is_valid():
+        form.save()
+        return redirect('hobbies:index')
+    return render(request, 'hobbies/hobby-form.html',{'form':form, 'hobby':hobby})
+
+def delete_hobby(request, id):
+    hobby=Hobby.objects.get(id=id)
+    if request.method == 'POST':
+        hobby.delete()
+        return redirect('hobbies:index')
+    return render(request, 'hobbies/hobby-delete.html', {'hobby':hobby})
