@@ -18,6 +18,11 @@
             <a href="{% url 'hobbies:create_hobby' %}" class="nav-item navbar-link">Add Item</a>
             <a href="#" class="nav-item navbar-link">Delete Item</a>
             <a href="#" class="nav-item navbar-link">View Item</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="nav-item navbar-link">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="nav-item navbar-link">Login</a>
+            {% endif %}
         </div>
     </nav>
 {% if messages %}
